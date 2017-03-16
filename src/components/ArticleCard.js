@@ -5,6 +5,7 @@ const ArticleCard = function (props) {
     <div className='box'>
       <article className='media'>
         <div className='media-left'>
+        Article Card
           <p>Upvotes:</p>
           {props.votes}
         </div>
