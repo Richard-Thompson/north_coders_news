@@ -6,7 +6,7 @@ function NavBar (props){
         <nav className="nav">
             <div className="nav-left">
                 <a className="nav-item">
-                <img className='logo'src='https://www.designmantic.com/create_thumb?id=15941&company=NorthCoders%2BNews&slogan='/>
+                <img className='logo'src='https://www.designmantic.com/create_thumb?id=15933&company=Northcoders%2BNews&slogan='/>
                 </a>
             </div>
 

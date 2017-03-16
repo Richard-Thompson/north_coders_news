@@ -4,30 +4,29 @@ import {expect} from 'chai';
 
 describe('actions.fetchArticlesRequest', function () {
     it('returns the expected action', function () {
-        const action = actions.fetchArticlesRequest(item);
+        const action = actions.fetchArticlesRequest();
         expect(action).to.eql({
             type: types.FETCH_ARTICLES_REQUEST,
-            item: item
         }); 
     });
 });
 
 describe('actions.fetchArticleSuccess', function () {
     it('returns the expected action', function () {
-        const action = actions.fetchArticlesSuccess(data);
+        const action = actions.fetchArticlesSuccess('articles');
         expect(action).to.eql({
             type: types.FETCH_ARTICLES_SUCCESS,
-            data:data 
+            data: 'articles' 
         });
     });
 });
 
 describe('actions.fetchArticlesError', function () {
     it('returns the expected action', function () {
-        const action = actions.fetchArticlesError(err);
+        const action = actions.fetchArticlesError('err');
         expect(action).to.eql({
             type: types.FETCH_ARTICLES_ERROR,
-            data:err
+            data: 'err'
         });
     });
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {fetchAllArticles} from '../actions/actions';
 import ArticleCard from './ArticleCard';
+
 const ArticleList = React.createClass({
 
   componentDidMount (){
@@ -11,8 +12,15 @@ const ArticleList = React.createClass({
   render () {
     return (
       <div id='ArticleList'>
-       All articles here.
-       <ArticleCard />
+       {this.props.articles.map(function (article, i) {
+         return <ArticleCard 
+         title={article.title} 
+         votes={article.votes} 
+         created_by={article.created_by} 
+         key={i}
+         comments={article.comments}
+          />
+       })}
       </div>
     );
   }
@@ -26,10 +34,11 @@ function mapDispatchToProps (dispatch){
   }
 }
 
-function mapStateToProps (){
+function mapStateToProps (state){
+  console.log(state);
   return{
     articles: state.articles
   };
 }
 
-export default connect(null, mapDispatchToProps)(ArticleList) 
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleList) 
