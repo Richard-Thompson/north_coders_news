@@ -20,7 +20,7 @@ ReactDOM.render(<Provider store={store}>
                     <Route path='/' component={App}>
                       <IndexRoute component={ArticleList}/>
                       <Route path='/topics/:topic/articles' component={TopicArticleList}/>
-                      <Route path='/topics/:topic/articles/:article_id' component={ArticlePage}/>
+                      <Route path='/articles/:article_id' component={ArticlePage}/>
                     </Route>
                   </Router>
                 </Provider>, document.getElementById('app'));

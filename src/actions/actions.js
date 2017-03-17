@@ -38,7 +38,7 @@ export function fetchTopicArticles(topic){
     return function (dispatch){
         dispatch(fetchTopicArticlesRequest());
         axios
-            .get(`${ROOT}/articles/${topic}/articles`)
+            .get(`${ROOT}/topics/${topic}/articles`)
             .then(function (res){
                 dispatch(fetchTopicArticlesSuccess(res.data.articles));
             })
@@ -64,4 +64,18 @@ export function fetchTopicArticlesError (err){
         type:types.FETCH_TOPIC_ARTICLES_ERROR,
         data:err
     }
+}
+
+export function fetchArticle(ID){
+    return function (dispatch){
+        dispatch(fetchArticleRequest());
+        axios
+            .get(`${ROOT}/topics/${topic}/articles`)
+            .then(function (res){
+                dispatch(fetchTopicArticlesSuccess(res.data.articles));
+            })
+            .catch(function (err){
+                dispatch(fetchTopicArticlesError(err));
+            });
+    };
 }

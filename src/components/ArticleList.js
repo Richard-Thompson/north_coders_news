@@ -14,6 +14,7 @@ const ArticleList = React.createClass({
       <div id='ArticleList'>
        {this.props.articles.map(function (article, i) {
          return <ArticleCard 
+         id={article._id}
          title={article.title} 
          votes={article.votes} 
          created_by={article.created_by} 
@@ -22,7 +23,7 @@ const ArticleList = React.createClass({
           />
        })}
       </div>
-    );
+    );1
   }
 });
 

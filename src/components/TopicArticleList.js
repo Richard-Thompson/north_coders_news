@@ -1,13 +1,14 @@
 import React from 'react';
 import ArticleCard from './ArticleCard';
 import { connect } from 'react-redux';
-import {fetchAllTopicArticles} from '../actions/actions';
+import {fetchTopicArticles} from '../actions/actions';
 
 const TopicArticleList = React.createClass({
 
     componentDidMount() {
         this.props.getArticles(this.props.params.topic);
-        console.log(this.props)
+        console.log(this.props.params.topic)
+       
     },
     render() {
         return (
@@ -29,13 +30,12 @@ const TopicArticleList = React.createClass({
 function mapDispatchToProps(dispatch) {
     return {
         getArticles: (topic) => {
-            dispatch(fetchAllTopicArticles(topic));
+            dispatch(fetchTopicArticles(topic));
         }
     }
 }
 
 function mapStateToProps(state) {
-    console.log(state);
     return {
         articles: state.articles
     };
