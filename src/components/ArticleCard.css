@@ -1,0 +1,16 @@
+.card{
+    width:800px;
+}
+.box:first-child{
+    margin-top:20px;
+}
+.vote-container{
+    float:left;
+    width:50px;
+}
+.vote i{
+    width:100%
+}
+.votes{
+    width: 100%
+}

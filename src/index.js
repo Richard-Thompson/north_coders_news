@@ -7,11 +7,11 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import './css/bulma.css';
 import './css/font-awesome.css';
 
+import reducer from './reducer/articles.reducer';
 import App from './components/App';
 import ArticleList from './components/ArticleList';
-import reducer from './reducer/articles.reducer';
 import TopicArticleList from './components/TopicArticleList';
-import ArticlePage from './components/ArticlePage';
+import Article from './components/Article';
 
 const store = createStore(reducer, applyMiddleware(thunk));
 
@@ -19,8 +19,8 @@ ReactDOM.render(<Provider store={store}>
                   <Router history={browserHistory}>
                     <Route path='/' component={App}>
                       <IndexRoute component={ArticleList}/>
-                      <Route path='/topics/:topic/articles' component={TopicArticleList}/>
-                      <Route path='/articles/:article_id' component={ArticlePage}/>
+                      <Route path='/:topic/articles' component={TopicArticleList}/>
+                      <Route path='/:topic/:article_id' component={Article}/>
                     </Route>
                   </Router>
                 </Provider>, document.getElementById('app'));

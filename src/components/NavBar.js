@@ -1,5 +1,5 @@
 import React from 'react';
-import './NavBar.css';
+import {Link} from 'react-router';
 
 function NavBar (props){
     return (
@@ -27,13 +27,19 @@ function NavBar (props){
                 All
                 </a>
                 <a className="nav-item">
+                <Link to='/cooking/articles'>
                 Cooking
+                </Link>
                 </a>
                 <a className="nav-item">
+                <Link to='/coding/articles'>
                 Coding
+                </Link>
                 </a>
                 <a className="nav-item">
-                Football
+                <Link to='/football/articles'>
+                FootBall
+                </Link>
                 </a>
 
                 <span className="nav-item">

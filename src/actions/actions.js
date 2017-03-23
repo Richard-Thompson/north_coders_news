@@ -9,6 +9,7 @@ export function fetchAllArticles(){
             .get(`${ROOT}/articles`)
             .then(function (res){
                 dispatch(fetchArticlesSuccess(res.data.articles));
+                console.log(res.data.articles);
             })
             .catch(function (err){
                 dispatch(fetchArticlesError(err));
