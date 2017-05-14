@@ -67,16 +67,72 @@ export function fetchTopicArticlesError (err){
     }
 }
 
-export function fetchArticle(ID){
-    return function (dispatch){
-        dispatch(fetchArticleRequest());
+
+
+export function articleVote (articleId ,upOrDown){
+   return function (dispatch){
+        dispatch(articleVoteRequest());
         axios
-            .get(`${ROOT}/topics/${topic}/articles`)
+            .put(`${ROOT}/articles/${articleId}${upOrDown}`)
             .then(function (res){
-                dispatch(fetchTopicArticlesSuccess(res.data.articles));
+                dispatch(articleVoteSuccess(articleId, upOrDown));
             })
             .catch(function (err){
-                dispatch(fetchTopicArticlesError(err));
+                console.log(err);
+                dispatch(articleVoteError(err));
             });
     };
+}
+export function articleVoteRequest (){
+    return{
+        type: types.ARTICLE_VOTE_REQUEST,
+    }
+}
+export function articleVoteSuccess (articleId,vote){
+    return{
+        type: types.ARTICLE_VOTE_SUCCESS,
+        articleId: articleId,
+        vote:vote
+    }
+}
+export function articleVoteError (err){
+    return{
+        type:types.ARTICLE_VOTE_ERROR,
+        data:err
+    }
+}
+
+export function fetchComments (articleId) {
+    return function (dispatch) {
+        dispatch(fetchCommentsRequest());
+        axios
+            .get(`${ROOT}/articles/${articleId}/comments`)
+            .then(function (res){
+                dispatch(fetchCommentsSuccess(res.data.comments));
+            })
+            .catch(function (err) {
+                console.log(err);
+                dispatch(fetchCommentsError(err));
+            })
+    }
+
+}
+export function fetchCommentsRequest () {
+    return {
+        type: types.FETCH_COMMENTS_REQUEST,
+    }
+}
+
+export function fetchCommentsSuccess (comments) {
+    return {
+        type: types.FETCH_COMMENTS_SUCCESS,
+        data: comments
+    }
+}
+
+export function fetchCommentsError (err) {
+    return {
+        type: types.FETCH_COMMENTS_ERROR,
+        data: err
+    }
 }

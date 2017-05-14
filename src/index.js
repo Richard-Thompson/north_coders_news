@@ -6,21 +6,22 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import './css/bulma.css';
 import './css/font-awesome.css';
+import logger from 'redux-logger';
 
-import reducer from './reducer/articles.reducer';
+import combineReducers from './reducer/combinedReducers';
 import App from './components/App';
 import ArticleList from './components/ArticleList';
 import TopicArticleList from './components/TopicArticleList';
-import Article from './components/Article';
+import ArticlePage from './components/ArticlePage';
 
-const store = createStore(reducer, applyMiddleware(thunk));
+const store = createStore(combineReducers, applyMiddleware(thunk, logger));
 
 ReactDOM.render(<Provider store={store}>
                   <Router history={browserHistory}>
                     <Route path='/' component={App}>
                       <IndexRoute component={ArticleList}/>
                       <Route path='/:topic/articles' component={TopicArticleList}/>
-                      <Route path='/:topic/:article_id' component={Article}/>
+                      <Route path='/:topic/:article_id' component={ArticlePage}/>
                     </Route>
                   </Router>
                 </Provider>, document.getElementById('app'));

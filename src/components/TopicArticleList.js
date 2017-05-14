@@ -7,8 +7,8 @@ import ArticleCard from './ArticleCard';
 
 const TopicArticleList = React.createClass({
 
-componentDidMount (){
-    this.props.getTopicArticles(this.props.params.topic)
+componentDidMount () {
+    this.props.getTopicArticles(this.props.params.topic);
     
 
 },
@@ -18,9 +18,9 @@ componentWillReceiveProps (nextProps) {
    }
  },
 
-render (){
-    console.log("*******", this.props.articles);
-    return(
+render () {
+   
+    return (
         <div>
             {this.props.articles.map(function (article, i) {
                 return <ArticleCard 
@@ -30,27 +30,27 @@ render (){
                             created_by={article.created_by} 
                             key={i}
                             comments={article.comments}
-                        />
+                        />;
             })}
         </div>
     );
 },
 
-})
+});
 
-function mapDispatchToProps (dispatch){
-    return{
-        getTopicArticles: (topic)=>{
+function mapDispatchToProps (dispatch) {
+    return {
+        getTopicArticles: (topic) => {
             dispatch(fetchTopicArticles(topic));
         }
-    }
+    };
 }
 
-function mapStateToProps (state){
+function mapStateToProps (state) {
     
-    return{
-        articles: state.articles
-    }
+    return {
+        articles: state.articles.articles
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(TopicArticleList);

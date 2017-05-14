@@ -24,7 +24,9 @@ function NavBar (props){
 
             <div className="nav-right nav-menu">
                 <a className="nav-item">
+                <Link to='/'>
                 All
+                </Link>
                 </a>
                 <a className="nav-item">
                 <Link to='/cooking/articles'>

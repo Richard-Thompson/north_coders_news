@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {fetchAllArticles} from '../actions/actions';
 
 
-const Article = React.createClass({
+const ArticlePage = React.createClass({
 
 render (){
     return(
@@ -14,4 +14,4 @@ render (){
 }
 });
 
-export default Article;
+export default ArticlePage;

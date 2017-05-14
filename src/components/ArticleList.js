@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchAllArticles} from '../actions/actions';
+import {articleVote} from '../actions/actions';
 
 import ArticleCard from './ArticleCard';
 
@@ -16,7 +17,7 @@ componentDidMount (){
 render (){
     return(
         <div>
-            {this.props.articles.map(function (article, i) {
+            {this.props.articles.map((article, i) => {
                 return <ArticleCard 
                             id={article._id}
                             title={article.title} 
@@ -24,6 +25,7 @@ render (){
                             created_by={article.created_by} 
                             key={i}
                             comments={article.comments}
+                            voteUpdate={this.props.voteUpdate}
                         />
             })};
         </div>
@@ -36,14 +38,18 @@ function mapDispatchToProps (dispatch){
     return{
         getAllArticles: ()=>{
             dispatch(fetchAllArticles());
+        },
+         voteUpdate: (articleId,upOrDown)=>{
+            dispatch(articleVote(articleId,upOrDown));
+           
         }
     }
-}``
+}
 
 function mapStateToProps (state){
     
     return{
-        articles: state.articles
+        articles: state.articles.articles
     }
 }
 
