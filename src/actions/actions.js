@@ -85,7 +85,7 @@ export function articleVote (articleId ,upOrDown){
 }
 export function articleVoteRequest (){
     return{
-        type: types.ARTICLE_VOTE_REQUEST,
+        type: types.ARTICLE_VOTE_REQUEST
     }
 }
 export function articleVoteSuccess (articleId,vote){
@@ -99,6 +99,42 @@ export function articleVoteError (err){
     return{
         type:types.ARTICLE_VOTE_ERROR,
         data:err
+    }
+}
+
+export function fetchArticle (articleId) {
+    return function (dispatch) {
+        dispatch(fetchArticleRequest());
+        axios
+            .get(`${ROOT}/articles/${articleId}`)
+            .then(function (res) {
+                dispatch(fetchArticleSuccess(res.data));
+            })
+            .catch(function (err) {
+                console.log(err);
+                dispatch(fetchArticleError(err))
+            })
+
+    }
+}
+
+export function fetchArticleRequest () {
+    return {
+        type: types.FETCH_ARTICLE_REQUEST
+    }
+}
+
+export function fetchArticleSuccess (article) {
+    return {
+        type: types.FETCH_ARTICLE_SUCCESS,
+        data: article
+    }
+}
+
+export function fetchArticleError (err) {
+    return {
+        type: types.FETCH_ARTICLE_ERROR,
+        data: err
     }
 }
 
@@ -134,5 +170,41 @@ export function fetchCommentsError (err) {
     return {
         type: types.FETCH_COMMENTS_ERROR,
         data: err
+    }
+}
+
+export function commentVote (commentId ,upOrDown, articleId){
+   return function (dispatch){
+        dispatch(commentVoteRequest());
+        axios
+            .put(`${ROOT}/comments/${commentId}${upOrDown}`)
+            .then(function (res){
+                dispatch(commentVoteSuccess(commentId, upOrDown));
+            })
+            .then(function (res) {
+                dispatch(fetchComments(articleId))
+            })
+            .catch(function (err){
+                console.log(err);
+                dispatch(commentVoteError(err));
+            });
+    };
+}
+export function commentVoteRequest (){
+    return{
+        type: types.COMMENT_VOTE_REQUEST
+    }
+}
+export function commentVoteSuccess (commentId,vote){
+    return{
+        type: types.COMMENT_VOTE_SUCCESS,
+        commentId: commentId,
+        vote:vote
+    }
+}
+export function commentVoteError (err){
+    return{
+        type:types.COMMENT_VOTE_ERROR,
+        data:err
     }
 }

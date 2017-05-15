@@ -1,32 +1,19 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {vote} from '../actions/actions';
-import {PropTypes} from 'prop-types';
-import CommentList from './CommentList';
+import {articleVote} from '../actions/actions';
+import {Link} from 'react-router';
+
 
 import '../css/ArticleCard.css';
 
 const ArticleCard = React.createClass({
-    getInitialState () {
-        return {
-            displayComments: false
-        };
-    },
-
+   
 upVote: function () {
     this.props.voteUpdate(`${this.props.id}`, '?vote=up');
 },
 
 downVote: function () {
     this.props.voteUpdate(`${this.props.id}`, '?vote=down');
-},
-
-toggleDisplay: function () {
-    this.setState(() => {
-        return {
-            displayComments: !this.state.displayComments
-        };
-    });
 },
 
 render () {
@@ -46,9 +33,9 @@ render () {
                             <strong>{this.props.created_by}</strong> 
                             <small>@johnsmith</small>
                             <br/>
-                            <p onClick={this.toggleDisplay}>
-                                {this.props.title}
-
+                            <p>
+                               <Link to={('/articles/'+this.props.id)}> {this.props.title}
+                               </Link>
                             </p>
                         </p>
                     </div>
@@ -67,18 +54,24 @@ render () {
                     </nav>
                 </div>
             </article>
-        {this.state.displayComments ? <CommentList articleId={this.props.id}/> : null}
         </div>
     );
 }
 });
 
-function mapStateToProps (state) {
-    
+function mapDispatchToProps (dispatch) {
     return {
-        articles: state.articles.articles,
-        comments: state.comments.comments
+        voteUpdate: (articleId, upOrDown) => {
+            dispatch(articleVote(articleId, upOrDown));
+        }
     };
 }
 
-export default connect(mapStateToProps)(ArticleCard);
+function mapStateToProps (state) {
+    
+    return {
+        articles: state.articles.articles
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleCard);

@@ -2,6 +2,7 @@ import * as types from '../actions/types';
 
 const initialState = {
   articles: [],
+  article:[],
   loading: false,
   error: null
 };
@@ -32,6 +33,20 @@ function articlesReducer (prevState = initialState, action) {
     newState.loading = false;
   }
   if(action.type === types.FETCH_TOPIC_ARTICLES_ERROR){
+    newState.error = action.data;
+    newState.loading = false;
+  }
+
+  if(action.type === types.FETCH_ARTICLE_REQUEST) {
+    newState.loading = true;
+  }
+
+  if(action.type === types.FETCH_ARTICLE_SUCCESS) {
+    newState.article = action.data;
+    newState.loading = false;
+  }
+
+  if(action.type === types.FETCH_ARTICLE_ERROR) {
     newState.error = action.data;
     newState.loading = false;
   }
