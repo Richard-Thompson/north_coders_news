@@ -1,7 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router';
 
-function NavBar (props){
+const NavBar = React.createClass({
+
+    getInitialState () {
+        return {
+            navIsActive: false,
+            menuClass: 'nav-right nav-menu'
+        }
+    },
+
+    render () {
     return (
         <nav className="nav">
             <div className="nav-left">
@@ -9,20 +18,14 @@ function NavBar (props){
                 <img className='logo'src='https://www.designmantic.com/create_thumb?id=15933&company=Northcoders%2BNews&slogan='/>
                 </a>
             </div>
-
-            <div className="nav-center">
-                
-                
-            </div>
-
   
-            <span className="nav-toggle">
+            <span className="nav-toggle" onClick={toggleMenu.bind(this)}>
                 <span></span>
                 <span></span>
                 <span></span>
             </span>
 
-            <div className="nav-right nav-menu">
+            <div id="menu" className={this.state.menuClass}>
                 <a className="nav-item">
                 <Link to='/'>
                 All
@@ -43,14 +46,26 @@ function NavBar (props){
                 FootBall
                 </Link>
                 </a>
-
-                <span className="nav-item">
-                
-                
-                </span>
             </div>
 </nav>
     )
+}
+
+});
+
+function toggleMenu() {
+  if (this.state.navIsActive) {
+    this.setState({
+      navIsActive: !this.state.navIsActive,
+      menuClass: 'nav-right nav-menu'
+    });
+  }
+  else {
+    this.setState({
+      navIsActive: !this.state.navIsActive,
+      menuClass: 'nav-right nav-menu is-active'
+    });
+  }
 }
 
 export default NavBar;
