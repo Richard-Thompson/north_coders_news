@@ -24,7 +24,7 @@ render () {
             <div className='votes'>{this.props.votes}</div>
           <i onClick={this.downVote} className="fa fa-arrow-down" aria-hidden="true"></i>
        </div>
-            <article className="media">
+            <article className="media ">
                 <div className="media-left">
                 </div>
                 <div className="media-content">
@@ -59,19 +59,4 @@ render () {
 }
 });
 
-function mapDispatchToProps (dispatch) {
-    return {
-        voteUpdate: (articleId, upOrDown) => {
-            dispatch(articleVote(articleId, upOrDown));
-        }
-    };
-}
-
-function mapStateToProps (state) {
-    
-    return {
-        articles: state.articles.articles
-    };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleCard);
+export default ArticleCard;

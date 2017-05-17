@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {fetchArticle} from '../actions/actions';
+import {fetchArticle, addComment} from '../actions/actions';
 import CommentList from './CommentList';
 import PostCommentForm from './PostCommentForm';
 
@@ -35,14 +35,20 @@ render (){
         <div className="box">
             {this.props.article.body}
         </div>
-        <PostCommentForm />
-        <CommentList articleId={this.props.params.article_id}/>
+        <PostCommentForm 
+        inputHandler={this.inputHandler}
+        submitHandler={this.submitHandler}
+        input={this.state.input}
+        />
+        <CommentList 
+        articleId={this.props.params.article_id}
+        />
     </div>
     );
 },
 
 inputHandler (event) {
-    let value = event.target;
+    let {value} = event.target;
 
     this.setState({
       input: value
@@ -51,12 +57,14 @@ inputHandler (event) {
   submitHandler (event) {
     event.preventDefault();
 
-    let article_id = this.props.params;
-    let input = this.state;
+    let {article_id} = this.props.params.article_id;
+    let {input} = this.state;
 
     this.props.addComment(article_id, input);
 
-    this.setState(resetInput);
+    this.setState({
+        input:''
+    });
   }
 });
 
@@ -66,9 +74,14 @@ function mapDispatchToProps (dispatch) {
     return {
         fetchArticle:function (articleId) {
             dispatch(fetchArticle(articleId))
+        },
+
+        addComment: function (articleId, comment) {
+            dispatch(addComment(articleId, comment));
+        }
         }
     }
-}
+
 
 function mapStateToProps (state) {
     return {

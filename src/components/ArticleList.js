@@ -16,7 +16,7 @@ componentDidMount (){
 
 render (){
     return(
-        <div>
+        <div className="is-mobile">
             {this.props.articles.map((article, i) => {
                 return <ArticleCard 
                             id={article._id}
