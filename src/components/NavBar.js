@@ -15,9 +15,9 @@ const NavBar = React.createClass({
     return (
         <nav className="nav">
             <div className="nav-left title">
-               <a className="nav-Item">
+               
                <h1>NorthNews</h1>
-               </a>
+               
             </div>
   
             <span className="nav-toggle" onClick={toggleMenu.bind(this)}>
