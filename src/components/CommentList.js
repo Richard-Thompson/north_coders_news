@@ -1,8 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {fetchComments} from '../actions/actions';
-import Comment from './Comment';
-const TopicArticleList = React.createClass({
+import {commentVote} from '../actions/actions';
+
+import CommentCard from './CommentCard';
+
+const CommentList = React.createClass({
 
 componentDidMount () {
  this.props.fetchComments(this.props.articleId);
@@ -11,29 +14,34 @@ componentDidMount () {
 render () {
   //  if (!this.props.comments.length) return null;
   return (
+                        
         <div>
-            {this.props.comments.map(function (comment, i) {
-                return <Comment
+            {this.props.comments.map((comment, i) =>{
+                return <CommentCard
                             id={comment._id}
                             articleId={comment.belongs_to}
                             comment={comment.body} 
                             user={comment.created_by}
                             created={comment.created_at} 
                             votes={comment.votes}
-                        />;
+                            voteUpdate={this.props.voteUpdate}             
+                        />
             })}
         </div>
     );
-},
+}
 
 });
 
 function mapDispatchToProps (dispatch) {
     return {
-        fetchComments: (articleId) => {
+        fetchComments:(articleId) => {
             dispatch(fetchComments(articleId));
+        },
+        voteUpdate: (commentId, upOrDown, articleId) => {
+            dispatch(commentVote(commentId, upOrDown, articleId));
         }
-    };
+    }
 }
 
 function mapStateToProps (state) {
@@ -43,4 +51,4 @@ function mapStateToProps (state) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopicArticleList);
+export default connect(mapStateToProps, mapDispatchToProps)(CommentList);
