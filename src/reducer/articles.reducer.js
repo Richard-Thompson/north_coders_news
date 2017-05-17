@@ -15,7 +15,9 @@ function articlesReducer (prevState = initialState, action) {
 
   }
   if (action.type === types.FETCH_ARTICLES_SUCCESS) {
-    newState.articles = action.data;
+  
+    newState.articles = newState.articles.slice();
+    newState.articles = newState.articles.concat(action.data);
     newState.loading = false;
   }
   if (action.type === types.FETCH_ARTICLES_ERROR) {
@@ -29,7 +31,9 @@ function articlesReducer (prevState = initialState, action) {
 
   }
   if (action.type === types.FETCH_TOPIC_ARTICLES_SUCCESS) {
-    newState.articles = action.data;
+    
+    newState.articles = newState.articles.slice();
+    newState.articles = newState.articles.concat(action.data);
     newState.loading = false;
   }
   if (action.type === types.FETCH_TOPIC_ARTICLES_ERROR) {
@@ -42,7 +46,8 @@ function articlesReducer (prevState = initialState, action) {
   }
 
   if (action.type === types.FETCH_ARTICLE_SUCCESS) {
-    newState.article = action.data;
+    newState.article = newState.article.slice();
+    newState.article = newState.article.concat(action.data);
     newState.loading = false;
   }
 
@@ -56,6 +61,7 @@ function articlesReducer (prevState = initialState, action) {
     newState.loading = true;
   }
   if (action.type === types.ARTICLE_VOTE_SUCCESS) {
+    newState.articles = newState.articles.slice();
     newState.articles = newState.articles.map(article => {
            if (article._id === action.articleId) {
                if (action.vote === '?vote=up') {

@@ -22,13 +22,13 @@ describe('articles.reducer', function () {
     const action = actions.fetchArticlesSuccess('articles');
     const initialState = {
       loading: true,
-      
+      articles: []
     };
 
     const actual = articlesReducer(initialState, action);
     const expected = {
       loading: false,
-      articles: 'articles',
+      articles: ['articles'],
       
     };
     expect(actual).to.eql(expected);
@@ -69,13 +69,13 @@ describe('articles.reducer', function () {
     const action = actions.fetchTopicArticlesSuccess('TopicArticles');
     const initialState = {
       loading: true,
-     articles: {}
+     articles: []
     };
 
     const actual = articlesReducer(initialState, action);
     const expected = {
       loading: false,
-      articles: 'TopicArticles'
+      articles: ['TopicArticles']
     };
     expect(actual).to.eql(expected);
     expect(actual).to.not.equal(initialState);
@@ -115,13 +115,13 @@ describe('articles.reducer', function () {
     const action = actions.fetchArticleSuccess('Article');
     const initialState = {
       loading: true,
-     article: {}
+     article: []
     };
 
     const actual = articlesReducer(initialState, action);
     const expected = {
       loading: false,
-      article: 'Article'
+      article: ['Article']
     };
     expect(actual).to.eql(expected);
     expect(actual).to.not.equal(initialState);
