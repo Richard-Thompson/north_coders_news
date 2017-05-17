@@ -17,7 +17,7 @@ const ArticleCard = React.createClass({
             .voteUpdate(`${this.props.id}`, '?vote=down');
     },
 
-    render() {
+    render () {
         return (
             <div className="box">
                 <div className='vote-container'>

@@ -6,15 +6,15 @@ import PostCommentForm from './PostCommentForm';
 
 const ArticlePage = React.createClass({
 
-    getInitialState() {
+    getInitialState () {
         return {input: ''};
     },
 
-    componentDidMount() {
+    componentDidMount () {
         this.props.fetchArticle(this.props.params.article_id);
 
     },
-    render() {
+    render () {
         return (
             <div>
                 <section className="hero is-primary">
@@ -41,12 +41,12 @@ const ArticlePage = React.createClass({
         );
     },
 
-    inputHandler(event) {
+    inputHandler (event) {
         let {value} = event.target;
 
         this.setState({input: value});
     },
-    submitHandler(event) {
+    submitHandler (event) {
         event.preventDefault();
 
         let {article_id} = this.props.params.article_id;
@@ -58,7 +58,7 @@ const ArticlePage = React.createClass({
     }
 });
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
     return {
         fetchArticle: function (articleId) {
             dispatch(fetchArticle(articleId));
@@ -70,7 +70,7 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
     return {article: state.articles.article, comments: state.comments.comments};
 }
 

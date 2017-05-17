@@ -11,7 +11,7 @@ const CommentCard = React.createClass({
 
     },
 
-    render() {
+    render () {
         return (
             <div className="box">
                 <div className='vote-container'>
