@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './NavBar';
+import Footer from './Footer';
 
 const App = React.createClass({
   render: function () {
@@ -7,6 +8,7 @@ const App = React.createClass({
       <div>
         <NavBar />
         {this.props.children}
+        <Footer />
       </div>
     );
   }

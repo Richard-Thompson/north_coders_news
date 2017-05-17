@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import '../css/NavBar.css';
 
 const NavBar = React.createClass({
 
@@ -13,10 +14,10 @@ const NavBar = React.createClass({
     render () {
     return (
         <nav className="nav">
-            <div className="nav-left">
-                <a className="nav-item">
-                <img className='logo'src='https://www.designmantic.com/create_thumb?id=15933&company=Northcoders%2BNews&slogan='/>
-                </a>
+            <div className="nav-left title">
+               <a className="nav-Item">
+               <h1>NorthNews</h1>
+               </a>
             </div>
   
             <span className="nav-toggle" onClick={toggleMenu.bind(this)}>
