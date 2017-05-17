@@ -9,7 +9,6 @@ export function fetchAllArticles(){
             .get(`${ROOT}/articles`)
             .then(function (res){
                 dispatch(fetchArticlesSuccess(res.data.articles));
-                console.log(res.data.articles);
             })
             .catch(function (err){
                 dispatch(fetchArticlesError(err));
@@ -181,7 +180,7 @@ export function commentVote (commentId ,upOrDown, articleId){
             .then(function (res){
                 dispatch(commentVoteSuccess(commentId, upOrDown));
             })
-            .then(function (res) {
+            .then(function () {
                 dispatch(fetchComments(articleId))
             })
             .catch(function (err){
@@ -207,4 +206,41 @@ export function commentVoteError (err){
         type:types.COMMENT_VOTE_ERROR,
         data:err
     }
+}
+
+export function addComment (article_id, comment) {
+  return function (dispatch) {
+    dispatch(addCommentRequest());
+    axios
+      .post(`${ROOT}/articles/${article_id}/comments`, {comment: comment})
+      .then(function (res){
+        dispatch(addCommentSuccess(res.data.comment));
+      })
+      .then(function () {
+          dispatch(fetchComments(article_id))
+      })
+      .catch(function (error) {
+        dispatch(addCommentError(error));
+      });
+  };
+}
+
+export function addCommentRequest () {
+  return {
+    type: types.ADD_COMMENT_REQUEST
+  };
+}
+
+export function addCommentSuccess (comment) {
+  return {
+    type: types.ADD_COMMENT_SUCCESS,
+    data: comment
+  };
+}
+
+export function addCommentError (error) {
+  return {
+    type: types.ADD_COMMENT_ERROR,
+    data: error
+  };
 }
