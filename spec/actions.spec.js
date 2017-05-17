@@ -2,12 +2,6 @@
 import * as actions from '../src/actions/actions';
 import * as types from '../src/actions/types';
 import {expect} from 'chai'; 
-import configureMockStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import nock from 'nock';
-
-const middlewares = [thunk]
-const mockStore = configureMockStore(middlewares)
 
 
 describe('actions', function () {

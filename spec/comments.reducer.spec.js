@@ -3,8 +3,8 @@ import {expect} from 'chai';
 import commentsReducer from '../src/reducer/comments.reducer';
 import * as actions from '../src/actions/actions';
 
-describe('comments.reducer', () => {
-  it('handles FETCH_COMMENTS_REQUESTS', () => {
+describe('comments.reducer', function () {
+  it('handles FETCH_COMMENTS_REQUESTS', function () {
     const action = actions.fetchCommentsRequest();
     const initialState = {
       loading: false
@@ -18,7 +18,7 @@ describe('comments.reducer', () => {
     expect(actual).to.not.equal(initialState);
   });
 
-  it('handles FETCH_COMMENTS_SUCCESS', () => {
+  it('handles FETCH_COMMENTS_SUCCESS', function () {
     const action = actions.fetchCommentsSuccess('comment');
     const initialState = {
       loading: true,
@@ -35,7 +35,7 @@ describe('comments.reducer', () => {
     expect(actual).to.not.equal(initialState);
   });
 
-  it('handles FETCH_COMMENTS_ERROR', () => {
+  it('handles FETCH_COMMENTS_ERROR', function () {
     const action = actions.fetchCommentsError('error');
     const initialState = {
       loading: true,
@@ -50,7 +50,7 @@ describe('comments.reducer', () => {
     expect(actual).to.eql(expected);
   });
 
-  it('handles VOTE_COMMENT_REQUESTS', () => {
+  it('handles VOTE_COMMENT_REQUESTS', function () {
     const action = actions.commentVoteRequest();
     const initialState = {
       loading: false
@@ -64,7 +64,7 @@ describe('comments.reducer', () => {
     expect(actual).to.not.equal(initialState);
   });
 
-  it('handles VOTE_COMMENT_SUCCESS UP', () => {
+  it('handles VOTE_COMMENT_SUCCESS UP', function () {
     const action = actions.commentVoteSuccess(1, '?vote=up');
     const initialState = {
       loading: true,
@@ -80,7 +80,7 @@ describe('comments.reducer', () => {
     expect(actual).to.not.equal(initialState);
   });
 
-  it('handles VOTE_COMMENT_SUCCESS DOWN', () => {
+  it('handles VOTE_COMMENT_SUCCESS DOWN', function () {
     const action = actions.commentVoteSuccess(1, '?vote=down');
     const initialState = {
       loading: true,
@@ -96,7 +96,7 @@ describe('comments.reducer', () => {
     expect(actual).to.not.equal(initialState);
   });
 
-  it('handles VOTE_COMMENT_ERROR', () => {
+  it('handles VOTE_COMMENT_ERROR', function () {
     const action = actions.commentVoteError('error');
     const initialState = {
       loading: true,
@@ -111,7 +111,7 @@ describe('comments.reducer', () => {
     expect(actual).to.eql(expected);
   });
 
-  it('handles ADD_COMMENT_REQUESTS', () => {
+  it('handles ADD_COMMENT_REQUESTS', function () {
     const action = actions.addCommentRequest();
     const initialState = {
       loading: false
@@ -125,7 +125,7 @@ describe('comments.reducer', () => {
     expect(actual).to.not.equal(initialState);
   });
 
-  it('handles ADD_COMMENT_SUCCESS', () => {
+  it('handles ADD_COMMENT_SUCCESS', function () {
     const action = actions.addCommentSuccess({_id: 2, comment: 'test'});
     const initialState = {
       loading: true,
@@ -141,7 +141,7 @@ describe('comments.reducer', () => {
     expect(actual).to.not.equal(initialState);
   });
 
-  it('handles ADD_COMMENT_ERROR', () => {
+  it('handles ADD_COMMENT_ERROR', function () {
     const action = actions.addCommentError('error');
     const initialState = {
       loading: true,

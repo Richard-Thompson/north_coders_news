@@ -24,17 +24,17 @@ function commentsReducer (prevState = initialState, action) {
     newState.loading = false;
   }
 
-  if(action.type === types.COMMENT_VOTE_REQUEST){
+  if (action.type === types.COMMENT_VOTE_REQUEST) {
     newState.loading = true;
   }
-  if(action.type === types.COMMENT_VOTE_SUCCESS){
+  if (action.type === types.COMMENT_VOTE_SUCCESS) {
     newState.comments = newState.comments.slice();
-    newState.comments = newState.comments.map(function (comment){
+    newState.comments = newState.comments.map(function (comment) {
            if (comment._id === action.commentId) {
                if (action.vote === '?vote=up') {
                    comment.votes++;
                    return comment;
-               } else if(action.vote === '?vote=down'){
+               } else if (action.vote === '?vote=down') {
                    comment.votes--;
                    return comment;
                }
@@ -45,7 +45,7 @@ function commentsReducer (prevState = initialState, action) {
     newState.loading = false;
     
   }
-  if(action.type === types.COMMENT_VOTE_ERROR){
+  if (action.type === types.COMMENT_VOTE_ERROR) {
     newState.error = action.data;
     newState.loading = false;
   }
@@ -55,7 +55,7 @@ function commentsReducer (prevState = initialState, action) {
   }
 
   if (action.type === types.ADD_COMMENT_SUCCESS) {
-    newState.comments = newState.comments.slice()
+    newState.comments = newState.comments.slice();
     newState.comments = newState.comments.concat(action.data);
     newState.loading = false;
     

@@ -8,14 +8,14 @@ import ArticleCard from './ArticleCard';
 
 const ArticleList = React.createClass({
 
-componentDidMount (){
-    this.props.getAllArticles()
+componentDidMount () {
+    this.props.getAllArticles();
 
 
 },
 
-render (){
-    return(
+render () {
+    return (
         <div className="is-mobile">
             {this.props.articles.map((article, i) => {
                 return <ArticleCard 
@@ -26,31 +26,31 @@ render (){
                             key={i}
                             comments={article.comments}
                             voteUpdate={this.props.voteUpdate}
-                        />
+                        />;
             })};
         </div>
     );
 },
 
-})
+});
 
-function mapDispatchToProps (dispatch){
-    return{
-        getAllArticles: ()=>{
+function mapDispatchToProps (dispatch) {
+    return {
+        getAllArticles: () => {
             dispatch(fetchAllArticles());
         },
-         voteUpdate: (articleId,upOrDown)=>{
+         voteUpdate: (articleId,upOrDown) => {
             dispatch(articleVote(articleId,upOrDown));
            
         }
-    }
+    };
 }
 
-function mapStateToProps (state){
+function mapStateToProps (state) {
     
-    return{
+    return {
         articles: state.articles.articles
-    }
+    };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleList);

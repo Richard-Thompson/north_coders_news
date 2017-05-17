@@ -8,7 +8,7 @@ const NavBar = React.createClass({
         return {
             navIsActive: false,
             menuClass: 'nav-right nav-menu'
-        }
+        };
     },
 
     render () {
@@ -49,12 +49,12 @@ const NavBar = React.createClass({
                 </a>
             </div>
 </nav>
-    )
+    );
 }
 
 });
 
-function toggleMenu() {
+function toggleMenu () {
   if (this.state.navIsActive) {
     this.setState({
       navIsActive: !this.state.navIsActive,

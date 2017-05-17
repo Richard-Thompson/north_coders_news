@@ -10,52 +10,52 @@ const initialState = {
 function articlesReducer (prevState = initialState, action) {
   const newState = Object.assign({}, prevState);
 
-  if(action.type === types.FETCH_ARTICLES_REQUEST){
+  if (action.type === types.FETCH_ARTICLES_REQUEST) {
     newState.loading = true;
 
   }
-  if(action.type === types.FETCH_ARTICLES_SUCCESS){
+  if (action.type === types.FETCH_ARTICLES_SUCCESS) {
     newState.articles = action.data;
     newState.loading = false;
   }
-  if(action.type === types.FETCH_ARTICLES_ERROR){
+  if (action.type === types.FETCH_ARTICLES_ERROR) {
     newState.error = action.data;
     newState.loading = false;
   }
 
 
-  if(action.type === types.FETCH_TOPIC_ARTICLES_REQUEST){
+  if (action.type === types.FETCH_TOPIC_ARTICLES_REQUEST) {
     newState.loading = true;
 
   }
-  if(action.type === types.FETCH_TOPIC_ARTICLES_SUCCESS){
+  if (action.type === types.FETCH_TOPIC_ARTICLES_SUCCESS) {
     newState.articles = action.data;
     newState.loading = false;
   }
-  if(action.type === types.FETCH_TOPIC_ARTICLES_ERROR){
+  if (action.type === types.FETCH_TOPIC_ARTICLES_ERROR) {
     newState.error = action.data;
     newState.loading = false;
   }
 
-  if(action.type === types.FETCH_ARTICLE_REQUEST) {
+  if (action.type === types.FETCH_ARTICLE_REQUEST) {
     newState.loading = true;
   }
 
-  if(action.type === types.FETCH_ARTICLE_SUCCESS) {
+  if (action.type === types.FETCH_ARTICLE_SUCCESS) {
     newState.article = action.data;
     newState.loading = false;
   }
 
-  if(action.type === types.FETCH_ARTICLE_ERROR) {
+  if (action.type === types.FETCH_ARTICLE_ERROR) {
     newState.error = action.data;
     newState.loading = false;
   }
 
 
-  if(action.type === types.ARTICLE_VOTE_REQUEST){
-    newState.loading=true;
+  if (action.type === types.ARTICLE_VOTE_REQUEST) {
+    newState.loading = true;
   }
-  if(action.type === types.ARTICLE_VOTE_SUCCESS){
+  if (action.type === types.ARTICLE_VOTE_SUCCESS) {
     newState.articles = newState.articles.map(article => {
            if (article._id === action.articleId) {
                if (action.vote === '?vote=up') {
@@ -72,7 +72,7 @@ function articlesReducer (prevState = initialState, action) {
     
     newState.loading = false;
   }
-  if(action.type === types.ARTICLE_VOTE_ERROR){
+  if (action.type === types.ARTICLE_VOTE_ERROR) {
     newState.error = action.data;
     newState.loading = false;
   }

@@ -16,7 +16,7 @@ render () {
   return (
                         
         <div>
-            {this.props.comments.map((comment, i) =>{
+            {this.props.comments.map((comment) => {
                 return <CommentCard
                             id={comment._id}
                             articleId={comment.belongs_to}
@@ -25,7 +25,7 @@ render () {
                             created={comment.created_at} 
                             votes={comment.votes}
                             voteUpdate={this.props.voteUpdate}             
-                        />
+                        />;
             })}
         </div>
     );
@@ -41,7 +41,7 @@ function mapDispatchToProps (dispatch) {
         voteUpdate: (commentId, upOrDown, articleId) => {
             dispatch(commentVote(commentId, upOrDown, articleId));
         }
-    }
+    };
 }
 
 function mapStateToProps (state) {

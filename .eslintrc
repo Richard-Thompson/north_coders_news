@@ -20,7 +20,7 @@
         "jsx/uses-factory": [1, {"pragma": "JSX"}],
         "jsx/mark-used-vars": 1,
         "jsx/no-undef": 1,
-        "react/prop-types": 1,
+        "react/prop-types": 0,
         "no-console": 0,
         "space-before-blocks": 1,
         "arrow-spacing": 1,

@@ -6,9 +6,9 @@ const App = React.createClass({
   render: function () {
     return (
       <div>
-        <NavBar />
+        <NavBar/> 
         {this.props.children}
-        <Footer />
+        <Footer/>
       </div>
     );
   }
