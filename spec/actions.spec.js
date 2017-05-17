@@ -1,3 +1,4 @@
+/* eslint-env node, mocha, chai */
 import * as actions from '../src/actions/actions';
 import * as types from '../src/actions/types';
 import {expect} from 'chai'; 

@@ -1,3 +1,4 @@
+/* eslint-env node, mocha, chai */
 import { expect } from 'chai';
 import * as actions from '../src/actions/actions';
 import articlesReducer from '../src/reducer/articles.reducer';
