@@ -6,15 +6,11 @@ import '../css/ArticleCard.css';
 const ArticleCard = React.createClass({
 
     upVote: function () {
-        this
-            .props
-            .voteUpdate(`${this.props.id}`, '?vote=up');
+        this.props.voteUpdate(`${this.props.id}`, '?vote=up');
     },
 
     downVote: function () {
-        this
-            .props
-            .voteUpdate(`${this.props.id}`, '?vote=down');
+        this.props.voteUpdate(`${this.props.id}`, '?vote=down');
     },
 
     render () {

@@ -7,11 +7,12 @@
     "test": "mocha ./spec --compilers js:babel-core/register",
     "dev": "webpack-dev-server",
     "lint": "eslint ./",
-     "posttest": "npm run lint"
+    "posttest": "npm run lint"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-register": "^6.24.1",
     "chai": "^3.5.0",
     "eslint": "^3.17.1",
     "eslint-plugin-jsx": "0.0.2",

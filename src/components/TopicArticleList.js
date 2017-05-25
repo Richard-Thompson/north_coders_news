@@ -7,21 +7,22 @@ import ArticleCard from './ArticleCard';
 
 const TopicArticleList = React.createClass({
 
-componentDidMount () {
+componentDidMount () {   
     this.props.getTopicArticles(this.props.params.topic);
-    
 
 },
+
 componentWillReceiveProps (nextProps) {
    if (this.props.params.topic !== nextProps.params.topic) {
      this.props.getTopicArticles(nextProps.params.topic);
+     console.log('it works');
    }
  },
-
 render () {
    
     return (
         <div>
+            {console.log(this.props.articles)}
             {this.props.articles.map(function (article, i) {
                 return <ArticleCard 
                             id={article._id}

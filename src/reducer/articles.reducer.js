@@ -33,7 +33,7 @@ function articlesReducer (prevState = initialState, action) {
   if (action.type === types.FETCH_TOPIC_ARTICLES_SUCCESS) {
     
     newState.articles = newState.articles.slice();
-    newState.articles = newState.articles.concat(action.data);
+    newState.articles = action.data;
     newState.loading = false;
   }
   if (action.type === types.FETCH_TOPIC_ARTICLES_ERROR) {
