@@ -46,8 +46,8 @@ function articlesReducer (prevState = initialState, action) {
   }
 
   if (action.type === types.FETCH_ARTICLE_SUCCESS) {
-    newState.article = newState.article.slice();
-    newState.article = newState.article.concat(action.data);
+    newState.article = action.data[0];
+    console.log(action.data[0]);
     newState.loading = false;
   }
 

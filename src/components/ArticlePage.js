@@ -16,6 +16,7 @@ const ArticlePage = React.createClass({
     },
     render () {
         return (
+            
             <div>
                 <section className="hero is-primary">
                     <div className="hero-body">
@@ -71,6 +72,7 @@ function mapDispatchToProps (dispatch) {
 }
 
 function mapStateToProps (state) {
+    
     return {article: state.articles.article, comments: state.comments.comments};
 }
 
