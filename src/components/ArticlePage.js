@@ -18,6 +18,7 @@ const ArticlePage = React.createClass({
         return (
             
             <div>
+                {console.log(this.props.article)}
                 <section className="hero is-primary">
                     <div className="hero-body">
                         <div className="container">

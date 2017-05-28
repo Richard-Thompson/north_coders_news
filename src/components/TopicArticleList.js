@@ -22,7 +22,6 @@ render () {
    
     return (
         <div>
-            {console.log(this.props.articles)}
             {this.props.articles.map(function (article, i) {
                 return <ArticleCard 
                             id={article._id}
