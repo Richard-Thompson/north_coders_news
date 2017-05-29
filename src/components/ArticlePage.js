@@ -12,7 +12,6 @@ const ArticlePage = React.createClass({
 
     componentDidMount () {
         this.props.fetchArticle(this.props.params.article_id);
-        console.log(this.props.article)
     },
     render () {
         return (
@@ -23,6 +22,7 @@ const ArticlePage = React.createClass({
                         <div className="container">
                             <h1 className="title">
                                 {this.props.article.title}
+                                {console.log(this.props.comments)}
                             </h1>
                             <h2 className="subtitle">
                                 {this.props.article.belongs_to}
@@ -75,7 +75,7 @@ function mapDispatchToProps (dispatch) {
 
 function mapStateToProps (state) {
         
-    return {article: state.articles.article, comments: state.comments.comments};
+    return {article: state.articles.article};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);
