@@ -12,28 +12,26 @@ const ArticlePage = React.createClass({
 
     componentDidMount () {
         this.props.fetchArticle(this.props.params.article_id);
-
+        console.log(this.props.article)
     },
     render () {
         return (
             
             <div>
-                {console.log(this.props.article[0]),
-                console.log(this.props.article[0].title)}
                 <section className="hero is-primary">
                     <div className="hero-body">
                         <div className="container">
                             <h1 className="title">
-                                {this.props.article[0].title}
+                                {this.props.article.title}
                             </h1>
                             <h2 className="subtitle">
-                                {this.props.article[0].belongs_to}
+                                {this.props.article.belongs_to}
                             </h2>
                         </div>
                     </div>
                 </section>
                 <div className="box">
-                    {this.props.article[0].body}
+                    {this.props.article.body}
                 </div>
                         
                 <PostCommentForm
@@ -76,7 +74,7 @@ function mapDispatchToProps (dispatch) {
 }
 
 function mapStateToProps (state) {
-    
+        
     return {article: state.articles.article, comments: state.comments.comments};
 }
 
