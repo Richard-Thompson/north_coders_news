@@ -2,7 +2,7 @@ import * as types from '../actions/types';
 
 const initialState = {
   articles: [],
-  article:[],
+  article:[{}],
   loading: false,
   error: null
 };
@@ -46,8 +46,7 @@ function articlesReducer (prevState = initialState, action) {
   }
 
   if (action.type === types.FETCH_ARTICLE_SUCCESS) {
-    newState.article = action.data[0];
-    console.log(action.data[0]);
+    newState.article = action.data;
     newState.loading = false;
   }
 

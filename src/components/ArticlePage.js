@@ -18,27 +18,28 @@ const ArticlePage = React.createClass({
         return (
             
             <div>
-                {console.log(this.props.article)}
                 <section className="hero is-primary">
                     <div className="hero-body">
                         <div className="container">
                             <h1 className="title">
-                                {this.props.article.title}
+                                {this.props.article[0].title}
                             </h1>
                             <h2 className="subtitle">
-                                {this.props.article.belongs_to}
+                                {this.props.article[0].belongs_to}
                             </h2>
                         </div>
                     </div>
                 </section>
                 <div className="box">
-                    {this.props.article.body}
+                    {this.props.article[0].body}
                 </div>
+                        
                 <PostCommentForm
                     inputHandler={this.inputHandler}
                     submitHandler={this.submitHandler}
                     input={this.state.input}/>
                 <CommentList articleId={this.props.params.article_id}/>
+                                
             </div>
         );
     },
