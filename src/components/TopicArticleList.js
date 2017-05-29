@@ -15,7 +15,6 @@ componentDidMount () {
 componentWillReceiveProps (nextProps) {
    if (this.props.params.topic !== nextProps.params.topic) {
      this.props.getTopicArticles(nextProps.params.topic);
-     console.log('it works');
    }
  },
 render () {
