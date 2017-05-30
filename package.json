@@ -21,11 +21,11 @@
     "eslint-plugin-jsx": "0.0.2",
     "eslint-plugin-react": "^6.10.0",
     "react-logger": "^1.1.0",
-    "redux-logger": "^3.0.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.2"
   },
   "dependencies": {
+    "redux-logger": "^3.0.0",
     "axios": "^0.15.3",
     "express": "^4.15.2",
     "react": "^15.2.1",
