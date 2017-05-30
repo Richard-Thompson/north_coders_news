@@ -9,7 +9,7 @@
     "lint": "eslint ./",
     "posttest": "npm run lint",
     "start": "node ./server/index.js",
-    "postinstall": "webpack"
+    "postinstall": "webpack --config webpack.prod.config.js"
   },
   "author": "",
   "license": "ISC",
