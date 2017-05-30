@@ -1,4 +1,4 @@
-# Project Title
+# NorthCodersNews
 
 This project is essentially a simplistic replica of redit, showcasing my coding skills with a functionally rich project. The project lists various articles on the home page.You can navigate to specific topics and then all the articles associated with the topic will be listed. You can up and down vote on comments and articles. In addition you can post a new comment to the article page.
 
