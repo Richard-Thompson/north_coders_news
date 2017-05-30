@@ -8,7 +8,8 @@
     "dev": "webpack-dev-server",
     "lint": "eslint ./",
     "posttest": "npm run lint",
-    "start": "node ./server/index.js"
+    "start": "node ./server/index.js",
+    "postinstall": "webpack"
   },
   "author": "",
   "license": "ISC",
