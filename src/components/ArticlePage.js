@@ -23,6 +23,7 @@ const ArticlePage = React.createClass({
                             <h1 className="title">
                                 {this.props.article.title}
                                 {console.log(this.props.comments)}
+                                {console.log(this.props.article)}
                             </h1>
                             <h2 className="subtitle">
                                 {this.props.article.belongs_to}
