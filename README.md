@@ -26,11 +26,15 @@ To obtain a copy of this project you will need to follow the instructions below:
 
 Install Node according to the instructions on https://nodejs.org/en/
 
+run node -v to check if node is or has been installed
+
 ### NPM:
 
 Ensure that npm is fully updated, carry out the following command in your terminal:
 
     npm install npm@latest -g
+
+run npm -v to see if node has been installed and what version you are running
 
 ## Installing
 
