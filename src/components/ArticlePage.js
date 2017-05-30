@@ -23,7 +23,7 @@ const ArticlePage = React.createClass({
                     inputHandler={this.inputHandler}
                     submitHandler={this.submitHandler}
                     input={this.state.input}/>
-                <CommentList articleId={this.props.params.article_id}/>
+               
                                 
             </div>
         );
