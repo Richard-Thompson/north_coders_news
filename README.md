@@ -17,7 +17,7 @@ To obtain a copy of this project you will need to follow the instructions below:
     
     git clone https://github.com/username/project-name.git
 
-    cd project/directory/where/project/lies
+    cd project/directory/where/project/is
     
 
 ## Prerequisites
@@ -44,14 +44,26 @@ Once you have all the required software installed, go to the directory of the cl
 
 This will install all the dependencies of the project.
 
+To start the project on a localhost server run the following command
+
+    npm run dev
+
+You will now be able to see the project on a local server by pasting in the the url below
+
+    localhost:9080
+
+Alternatively you can go to the deployed website:
+
+    https://secret-harbor-32173.herokuapp.com/
+
 ## Running the tests
 
-To run all the automated tests for this project, all you have to do is the following command:
+To run all the automated tests for this project, all you have to do is the following command in the root directory:
 
 ```
 npm test
 ```
-## And coding style tests
+## Coding style tests
 
 In this project I have installed eslint to highlight any syntax errors. 
 
