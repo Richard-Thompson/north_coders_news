@@ -22,12 +22,7 @@ const ArticlePage = React.createClass({
                         <div className="container">
                             <h1 className="title">
                                 {this.props.article.title}
-                                {console.log(this.props.comments)}
-                                {console.log(this.props.article)}
                             </h1>
-                            <div>
-                                <p>This is a test to see if heroku is updating my code</p>
-                            </div>
                             <h2 className="subtitle">
                                 {this.props.article.belongs_to}
                             </h2>
