@@ -17,23 +17,7 @@ const ArticlePage = React.createClass({
         return (
             
             <div>
-                <section className="hero is-primary">
-                    <div className="hero-body">
-                        <div className="container">
-                            <h1 className="title">
-                                {this.props.article.title}
-                                {console.log(this.props.comments)}
-                                {console.log(this.props.article)}
-                            </h1>
-                            <h2 className="subtitle">
-                                {this.props.article.belongs_to}
-                            </h2>
-                        </div>
-                    </div>
-                </section>
-                <div className="box">
-                    {this.props.article.body}
-                </div>
+                
                         
                 <PostCommentForm
                     inputHandler={this.inputHandler}
