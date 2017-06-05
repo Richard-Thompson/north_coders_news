@@ -8,16 +8,14 @@ To obtain a copy of this project you will need to follow the instructions below:
 
 -On the command line change into the directory you wish to clone the project
 
--Fork the project onto your github account 
-
 -Copy the HTTPS clone url 
 
 -carry out the following commands:
 
     
-    git clone https://github.com/username/project-name.git
+    git clone https://github.com/Richard-Thompson/north_coders_news.git
 
-    cd project/directory/where/project/is
+    cd north_coders_news
     
 
 ## Prerequisites
@@ -48,7 +46,7 @@ To start the project on a localhost server run the following command
 
     npm run dev
 
-You will now be able to see the project on a local server by pasting in the the url below
+You will now be able to see the project by navigating to:
 
     localhost:9080
 
@@ -75,8 +73,10 @@ Once running errors will show in the console.
 
 * [Node](https://nodejs.org/en/docs/) - Javascript runtime 
 * [NPM](https://docs.npmjs.com/) - Dependency Management
-* [Mocha](https://mochajs.org/) - Javascript test framework
-* [Chai](http://chaijs.com/) - Javascript assertion library
+* [Webpack](http://webpack.github.io/docs/) - Module bundler
+* [React](https://facebook.github.io/react/) - Javascript library for user-interfaces
+* [Redux](http://redux.js.org/) - A predictable state container for JavaScript apps
+* And others.
 
 ## Authors
 
