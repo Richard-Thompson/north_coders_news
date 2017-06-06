@@ -157,12 +157,14 @@ export function commentVoteError (err) {
 }
 
 export function addComment (article_id, comment) {
+   
     return function (dispatch) {
         dispatch(addCommentRequest());
         axios
             .post(`${ROOT}/articles/${article_id}/comments`, {comment: comment})
             .then(function (res) {
-                dispatch(addCommentSuccess(res.data.comment));
+               
+                dispatch(addCommentSuccess(res.data.body.comment));
             })
             .then(function () {
                 dispatch(fetchComments(article_id));

@@ -50,9 +50,11 @@ const ArticlePage = React.createClass({
     },
     submitHandler (event) {
         event.preventDefault();
-
-        let {article_id} = this.props.params.article_id;
+        let article_id = this.props.params.article_id;
+       console.log(article_id)
+      
         let {input} = this.state;
+   
 
         this.props.addComment(article_id, input);
 
@@ -74,7 +76,7 @@ function mapDispatchToProps (dispatch) {
 
 function mapStateToProps (state) {
         
-    return {article: state.articles.article};
+    return {article: state.articles.article, comments:state.comments.comments};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);
