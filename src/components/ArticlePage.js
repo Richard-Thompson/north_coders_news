@@ -76,7 +76,7 @@ function mapDispatchToProps (dispatch) {
 
 function mapStateToProps (state) {
         
-    return {article: state.articles.article, comments:state.comments.comments};
+    return {article: state.articles.article};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);

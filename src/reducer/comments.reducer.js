@@ -16,7 +16,7 @@ function commentsReducer (prevState = initialState, action) {
   }
   if (action.type === types.FETCH_COMMENTS_SUCCESS) {
     newState.comments = newState.comments.slice();
-    newState.comments = newState.comments.concat(action.data);
+    newState.comments = action.data;
     newState.loading = false;
   } 
   if (action.type === types.FETCH_COMMENTS_ERROR) {
@@ -56,7 +56,8 @@ function commentsReducer (prevState = initialState, action) {
 
   if (action.type === types.ADD_COMMENT_SUCCESS) {
     newState.comments = newState.comments.slice();
-    newState.comments = newState.comments.concat(action.data);
+    newState.comments = newState.comments.concat(action.data)
+    
     newState.loading = false;
     
   }
