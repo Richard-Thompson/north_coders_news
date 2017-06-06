@@ -30,7 +30,7 @@ export function fetchTopicArticles (topic) {
     return function (dispatch) {
         dispatch(fetchTopicArticlesRequest());
         axios
-            .get(`${ROOT}/topics/${topic}/articles`)
+            .get(`${ROOT}/topics/${topic}`)
             .then(function (res) {
                 dispatch(fetchTopicArticlesSuccess(res.data.articles));
             })
