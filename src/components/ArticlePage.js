@@ -4,6 +4,8 @@ import {fetchArticle, addComment} from '../actions/actions';
 import CommentList from './CommentList';
 import PostCommentForm from './PostCommentForm';
 
+import '../css/ArticlePage.css';
+
 const ArticlePage = React.createClass({
 
     getInitialState () {
@@ -29,7 +31,7 @@ const ArticlePage = React.createClass({
                         </div>
                     </div>
                 </section>
-                <div className="box">
+                <div className="article-box">
                     {this.props.article.body}
                 </div>
                         

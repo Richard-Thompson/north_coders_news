@@ -1,0 +1,34 @@
+div.hero-body{
+  background-color:#808060;
+}
+div.comment-box{
+  position: relative;
+}
+div.vote-box{
+  position: absolute;
+  top: 5%;
+  transform: translate(-50%)
+}
+div.article-box{
+  width:90%;
+  margin-left: auto;
+  margin-right:auto;
+  border: 2px solid lightgrey;
+ padding: 20px;
+}
+.button.is-success{
+  background-color: #808060
+}
+.posting-comments{
+  width:90%;
+  margin-left: auto;
+  margin-right:auto;
+}
+.textarea{
+  border: 2px solid lightgrey;
+}
+.button.is-success:hover{
+  background-color: #C2C1C1;
+}
+
+

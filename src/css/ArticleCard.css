@@ -7,10 +7,83 @@
 .vote-container{
     float:left;
     width:50px;
+    top:20px;
 }
-.vote i{
-    width:100%
+.voting-box{
+    position: absolute;
+    top: 5%;
+    transform: translate(-50%)
 }
-.votes{
-    width: 100%
+
+div.box{
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+}
+
+div.vote-container{
+    height: 100px;
+    padding: 0;
+    position: relative;
+  
+}
+
+i.fa.fa-arrow-up{
+    width:100%;
+    height:15%;
+    color:#313131;
+    margin-top: 10px;
+    cursor: pointer;
+
+  }
+  .fa-arrow-up:before{
+      cursor: pointer;
+  }
+
+div.votes{
+    width:100%;
+    height:15px;
+    text-align: center;
+    line-height: 1;
+ 
+}
+
+i.fa.fa-arrow-down{
+    width:100%;
+    height:15%;
+    color: #313131;
+    cursor: pointer;
+}
+
+.fa-arrow-down:before{
+    cursor: pointer;
+}
+
+div p strong{
+    color:#313131;
+}
+
+div p p a{
+    color:#313131;
+}
+
+.content a:not(.button):visited{
+    color: lightgray;
+}
+i.fa.fa-reply{
+    color:#313131;
+}
+.fa-retweet:before{
+    color:#313131;
+}
+i.fa.fa-heart{
+    color:#313131;
+}
+
+div.box:hover{
+    border:1px solid #313131;
+}
+
+div.media-content div.content p p a:hover{
+    border-bottom-color: grey;
 }

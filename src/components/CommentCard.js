@@ -13,8 +13,8 @@ const CommentCard = React.createClass({
 
     render () {
         return (
-            <div className="box">
-                <div className='vote-container'>
+            <div className="box comment-box">
+                <div className='vote-container vote-box'>
                     <i onClick={this.upVote} className="fa fa-arrow-up" aria-hidden="true"></i>
                     <div className='votes'>{this.props.votes}</div>
                     <i onClick={this.downVote} className="fa fa-arrow-down" aria-hidden="true"></i>

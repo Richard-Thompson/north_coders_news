@@ -5,7 +5,6 @@ import {articleVote} from '../actions/actions';
 
 import ArticleCard from './ArticleCard';
 
-
 const ArticleList = React.createClass({
 
 componentDidMount () {
@@ -26,7 +25,7 @@ render () {
                             key={i}
                             comments={article.comments}
                             voteUpdate={this.props.voteUpdate}
-                        />;
+                        />
             })};
         </div>
     );

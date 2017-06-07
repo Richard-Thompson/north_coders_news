@@ -1,8 +1,25 @@
-.title{
+.nav{
+  background-color: black;
+}
+
+div.nav-left.title{
+  text-align: center;
+  margin-bottom: 0;
+}
+span.nav-toggle{
+  height:75px;
+  padding: 5px;
+}
+span.nav-toggle:hover{
+  background-color: #151313
+}
+
+.title h1{
   margin-bottom: 10px;
   margin-top:10px;
-   
-}
+  margin-left:20px;
+  line-height: 50px;
+  }
 
 h1{
   color: grey;
