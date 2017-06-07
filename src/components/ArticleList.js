@@ -26,7 +26,7 @@ render () {
                             comments={article.comments}
                             voteUpdate={this.props.voteUpdate}
                         />
-            })};
+            })}
         </div>
     );
 },
